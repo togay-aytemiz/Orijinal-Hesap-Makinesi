@@ -96,21 +96,14 @@ Hesap makinesinin çalışmasını sağlamak için *sadece* aşağıdaki üç g�
 
         setCurrentCalc(() => {
           return {
-            currentNum : [numFromClick]
-          }
-        })
-
-        setCurrentCalc(() => {
-          return {
-            ...INITIAL_STATE,
-            currentNum: [],
+            currentNum : [numFromClick],
             previousNum: [],
             operation: undefined,
             result: [],
           }
         })
+
         
-      
         /* Görev 2/3 - Yeni Bir Hesaplama Başlatmak
           
 
@@ -120,7 +113,14 @@ Hesap makinesinin çalışmasını sağlamak için *sadece* aşağıdaki üç g�
         /*-------------Yukarıdaki 2. görev için kodunuzu yazın.------------------------------------------------*/
       } else if (conditionSix) {
         
-        setCurrentCalc
+        setCurrentCalc((prevCalc)=> {
+          return {
+            ...prevCalc,
+            previousNum: [...result],
+            result:[],
+            currentNum: [numFromClick]
+          }
+        })
 
         /* Görev 3/3 - Hesaplamaya Devam Etme 
             
